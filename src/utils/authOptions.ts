@@ -29,7 +29,7 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         try {
-          const user = await axios.post('/login', {
+          const user = await axios.post('/auth/login', {
             password: credentials?.password,
             email: credentials?.email
           });
@@ -56,7 +56,7 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         try {
-          const user = await axios.post('/register', {
+          const user = await axios.post('/auth/register', {
             firstname: credentials?.firstname,
             lastname: credentials?.lastname,
             company: credentials?.company,

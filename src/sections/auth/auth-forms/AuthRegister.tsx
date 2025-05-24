@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, SyntheticEvent } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 
 // next
 import NextLink from 'next/link';
@@ -66,18 +66,30 @@ export default function AuthRegister({ providers, csrfToken }: any) {
           firstname: '',
           lastname: '',
           email: '',
-          company: '',
           password: '',
+          username: '',
+          phone: '',
           submit: null
         }}
         validationSchema={Yup.object().shape({
           firstname: Yup.string().max(255).required('First Name is required'),
           lastname: Yup.string().max(255).required('Last Name is required'),
+          phone: Yup.string().max(255).required('Phone numer is required'),
+          username: Yup.string().max(255).required('username is required'),
           email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
           password: Yup.string()
             .required('Password is required')
             .test('no-leading-trailing-whitespace', 'Password cannot start or end with spaces', (value) => value === value.trim())
-            .max(10, 'Password must be less than 10 characters')
+            .min(
+              10,
+              'Be at least 10 characters long\n' +
+                'Include at least one uppercase letter\n' +
+                'Include at least one lowercase letter\n' +
+                'Include at least one digit\n' +
+                'Include at least one exclamation mark (!)\n' +
+                'Not contain 3 or more of the same character in a row\n' +
+                'Use only A-Z, a-z, 0–9, and !'
+            )
         })}
         onSubmit={async (values, { setErrors, setSubmitting }) => {
           const trimmedEmail = values.email.trim();
@@ -87,7 +99,8 @@ export default function AuthRegister({ providers, csrfToken }: any) {
             lastname: values.lastname,
             email: trimmedEmail,
             password: values.password,
-            company: values.company,
+            username: values.username,
+            phone: values.phone,
             callbackUrl: APP_DEFAULT_PATH
           }).then((res: any) => {
             if (res?.error) {
@@ -146,22 +159,43 @@ export default function AuthRegister({ providers, csrfToken }: any) {
               </Grid>
               <Grid item xs={12}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="company-signup">Company</InputLabel>
+                  <InputLabel htmlFor="Phone">Phone</InputLabel>
                   <OutlinedInput
                     fullWidth
-                    error={Boolean(touched.company && errors.company)}
-                    id="company-signup"
-                    value={values.company}
-                    name="company"
+                    error={Boolean(touched.phone && errors.phone)}
+                    id="phone"
+                    value={values.phone}
+                    name="phone"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    placeholder="Enter your company name"
+                    placeholder="Enter your phone number"
                     inputProps={{}}
                   />
                 </Stack>
-                {touched.company && errors.company && (
-                  <FormHelperText error id="helper-text-company-signup">
-                    {errors.company}
+                {touched.phone && errors.phone && (
+                  <FormHelperText error id="helper-text-user-signup">
+                    {errors.phone}
+                  </FormHelperText>
+                )}
+              </Grid>
+              <Grid item xs={12}>
+                <Stack spacing={1}>
+                  <InputLabel htmlFor="username">Username</InputLabel>
+                  <OutlinedInput
+                    fullWidth
+                    error={Boolean(touched.username && errors.username)}
+                    id="username"
+                    value={values.username}
+                    name="username"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder="Enter your user name"
+                    inputProps={{}}
+                  />
+                </Stack>
+                {touched.username && errors.username && (
+                  <FormHelperText error id="helper-text-user-signup">
+                    {errors.username}
                   </FormHelperText>
                 )}
               </Grid>
