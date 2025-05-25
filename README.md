@@ -6,7 +6,7 @@
 
 ## Backend Production Sprint Contribution
 - Matt: set up vercel app and repo for alpha sprint
-- Kaely: organzized and ensured completion of tasks
+- Kaely: Created skeleton hierarchy for single book and list of books. Completed code for a single book in the view directory.
 - Kylie: coordinated and set up communication with concerned groups for alpha sprint along with Ken 
 - Ken:   coordinated and set up communication with concerned groups for alpha sprint along with Kylie
 
