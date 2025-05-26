@@ -89,7 +89,7 @@ export default function BookSingle() {
             {/* Book Cover */}
             <Grid item xs={12} md={4}>
               <Card>
-                <CardMedia component="img" image={book.image} alt={book.title} sx={{ height: 400, objectFit: 'cover' }} />
+                <CardMedia component="img" image={book.image} alt={book.title} sx={{ height: 500, objectFit: 'contain' }} />
               </Card>
             </Grid>
 
