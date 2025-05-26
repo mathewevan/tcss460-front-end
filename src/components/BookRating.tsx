@@ -4,12 +4,12 @@ import { ReactNode } from 'react';
 import { useState } from "react";
 
 //material-ui Imports
-import * as React from 'react';
 import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import Star from '@mui/icons-material/Star';
+import Typography from '@mui/material/Typography';
 
 //Attempt at Customizability:
 /*const labels: { [index: string]: string} = { //By production, show numbers AND text
@@ -98,4 +98,4 @@ const RatingComponent = () => { //Looking into how to make this actually work.
   );
 }; */
 
-export default BookRating;
+//export default BookRating;
