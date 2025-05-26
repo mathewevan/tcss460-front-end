@@ -13,7 +13,7 @@
 ## Version Beta I Sprint Meetings
 - Doing our communication through a Discord Server for our Group, messages and meetings in a voice channel.
 - Thursday: 8pm - 10:30pm, discussed how tasks would be split up for the front end alpha sprint.
-- Saturday: 1pm - ~2pm, peer coding meeting.
+- Saturday: 1pm - ~3pm, peer coding meeting.
 - Sunday: 8pm - ~9:30pm, testing views, doing fixes.
 
 ## Version Beta I Sprint Comments
