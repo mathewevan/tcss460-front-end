@@ -55,7 +55,7 @@ const mockBook = {
     average: 4.2,
     count: 1247
   },
-  image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop',
+  image: 'https://images.gr-assets.com/books/1490528560m/4671.jpg',
   description:
     'Set in the summer of 1922, The Great Gatsby follows Nick Carraway, a young Yale graduate and World War I veteran from the Midwest who moves to Long Island in 1922, intending to work in the bond business.',
   genre: 'Literary Fiction',

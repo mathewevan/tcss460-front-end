@@ -20,7 +20,7 @@ const mockBook1 = {
   authors: 'F. Scott Fitzgerald',
   publication: 1925,
   title: 'The Great Gatsby',
-  image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop'
+  image: 'https://images.gr-assets.com/books/1490528560m/4671.jpg'
 };
 
 const mockBook2 = {
@@ -71,7 +71,7 @@ export default function BookList() {
             {/* Book Cover */}
             <Grid item xs={12} md={4}>
               <Card>
-                <CardMedia component="img" image={book.image} alt={book.title} sx={{ height: 400, objectFit: 'cover' }} />
+                <CardMedia component="img" image={book.image} alt={book.title} sx={{ height: 300, objectFit: 'contain' }} />
               </Card>
             </Grid>
 
