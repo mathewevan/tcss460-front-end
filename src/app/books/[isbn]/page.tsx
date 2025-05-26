@@ -1,5 +1,5 @@
 import React from 'react';
-import BookSingle from 'views/books/book-single';
+import BookSingle from '../../views/books/book-single';
 
 // ==============================|| PAGE ||============================== //
 
