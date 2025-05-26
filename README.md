@@ -19,3 +19,4 @@
 ## Version Beta I Sprint Comments
 - https://group5-tcss460-front-ak55n00sw-matt-millers-projects-5fc80133.vercel.app/books for viewing book list.
 - https://group5-tcss460-front-ak55n00sw-matt-millers-projects-5fc80133.vercel.app/books/123 for viewing book single.
+- https://group5-tcss460-front-ak55n00sw-matt-millers-projects-5fc80133.vercel.app/account for changing account password.
