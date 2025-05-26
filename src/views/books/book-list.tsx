@@ -57,6 +57,7 @@ const mockBook5 = {
 }
 
 export default function BookList() {
+<<<<<<< Updated upstream
     const router = useRouter();
     const [book1] = React.useState(mockBook1);
     const [book2] = React.useState(mockBook2);
@@ -227,4 +228,65 @@ export default function BookList() {
             </Box>
         </Container>
     );
+=======
+  const router = useRouter();
+  const books = [mockBook1, mockBook2, mockBook3, mockBook4, mockBook5];
+
+  const handleClick = () => {
+    router.push('/books');
+  };
+  return (
+    <Container maxWidth="lg">
+      <Box sx={{ mb: 3 }}>
+        <Button startIcon={<ArrowForwardIcon />} onClick={handleClick} sx={{ mb: 2 }}>
+          More Information Here!
+        </Button>
+
+        <MainCard>
+          <Stack spacing={6}>
+            {books.map((book, index) => (
+              <Grid container spacing={4} key={book.isbn13}>
+                {/* Book Cover */}
+                <Grid item xs={12} md={4}>
+                  <Card>
+                    <CardMedia component="img" image={book.image} alt={book.title} sx={{ height: 400, objectFit: 'cover' }} />
+                  </Card>
+                </Grid>
+
+                {/* Book Information */}
+                <Grid item xs={12} md={8}>
+                  <Stack spacing={3}>
+                    {/* Title and Author */}
+                    <Box>
+                      <Typography variant="h3" component="h1" gutterBottom>
+                        {book.title}
+                      </Typography>
+                      <Typography variant="h5" color="text.secondary" sx={{ mb: 2 }}>
+                        by {book.authors}
+                      </Typography>
+                    </Box>
+                    {/* Book Details */}
+                    <Box>
+                      <Typography variant="h5" gutterBottom>
+                        Book Details
+                      </Typography>
+                      <Stack spacing={1}>
+                        <Typography>
+                          <strong>ISBN-13:</strong> {book.isbn13}
+                        </Typography>
+                        <Typography>
+                          <strong>Publication Year:</strong> {book.publication}
+                        </Typography>
+                      </Stack>
+                    </Box>
+                  </Stack>
+                </Grid>
+              </Grid>
+            ))}
+          </Stack>
+        </MainCard>
+      </Box>
+    </Container>
+  );
+>>>>>>> Stashed changes
 }
