@@ -3,6 +3,9 @@ import { FormattedMessage } from 'react-intl';
 
 // assets
 import MessageOutlined from '@ant-design/icons/MessageOutlined';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import EmailIcon from '@mui/icons-material/Email';
 import SendIcon from '@mui/icons-material/Send';
 
@@ -10,7 +13,7 @@ import SendIcon from '@mui/icons-material/Send';
 import { NavItemType } from 'types/menu';
 
 // icons
-const icons = { MessageOutlined, EmailIcon, SendIcon };
+const icons = { MessageOutlined, SearchOutlined, MenuBookOutlinedIcon, LibraryBooksIcon, EmailIcon, SendIcon };
 
 // ==============================|| MENU ITEMS - PAGES ||============================== //
 
@@ -38,6 +41,28 @@ const pages: NavItemType = {
           type: 'item',
           url: '/messages/list',
           icon: icons.EmailIcon
+        }
+      ]
+    },
+    {
+      id: 'books-category',
+      title: <FormattedMessage id="books-category" />,
+      type: 'collapse',
+      icon: icons.SearchOutlined,
+      children: [
+        {
+          id: 'books-search-isbn',
+          title: <FormattedMessage id="books-search-isbn" />,
+          type: 'item',
+          url: '/books/search/isbn',
+          icon: icons.MenuBookOutlinedIcon
+        },
+        {
+          id: 'books-view-all',
+          title: <FormattedMessage id="books-view-all" />,
+          type: 'item',
+          url: '/books',
+          icon: icons.LibraryBooksIcon
         }
       ]
     }

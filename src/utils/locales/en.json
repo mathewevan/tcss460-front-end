@@ -13,5 +13,8 @@
   "sample-page": "Sample Page",
   "send-message": "Send Message",
   "under-construction": "Under Construction",
-  "view-messages": "View Messages"
+  "view-messages": "View Messages",
+  "books-category": "Books",
+  "books-search-isbn": "Search ISBN13",
+  "books-view-all": "View All"
 }
