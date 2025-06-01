@@ -14,6 +14,7 @@ import * as Yup from 'yup';
 
 export default function CreateBook() {
   return (
+    //All Ratings parts might not be needed based on the API but has the info built in just in case.
     <Formik
       initialValues={{
         newBook: '',
@@ -37,14 +38,22 @@ export default function CreateBook() {
         console.log(values);
       }}
       validationSchema={Yup.object().shape({
-        newISBN: Yup.number().max(13).required('A valid ISBN is required').min(10).required('A valid ISBN is required!')
+        newISBN: Yup.number().max(13).required('A valid ISBN is required!').min(10).required('A valid ISBN is required!'),
+        newAuthor: Yup.string()
+          .required('A book needs at least 1 author!')
+          .matches(/^(\s*\S+?(\s*,\s*\S+?)*)?$/, 'The authors must be listed in a comma-separated list.'),
+        newPublication: Yup.number().required('A valid Publication Year is required!'),
+        newOriginalTitle: Yup.string().required('A book needs an original title!'),
+        newTitle: Yup.string().required('A book needs a title!'),
+        newFullImageLink: Yup.string().url().required('A book needs an image link'),
+        newSmallImageLink: Yup.string().url().required('A book needs a small image as a link')
       })}
       //Possible good Validation Schema test to have: Making sure the added book doesn't match an existing book in the database
     >
       {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
         <form noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
-            <Grid item xs={12}> 
+            <Grid item xs={12}>
               <InputLabel htmlFor="newISBN">Book ISBN Number</InputLabel>
               <OutlinedInput
                 fullWidth={false}
@@ -315,7 +324,7 @@ export default function CreateBook() {
                   </InputAdornment>
                 }
                 placeholder="Enter the amount of 5 star ratings."
-              />              
+              />
             </Grid>
             <Grid item xs={12}>
               <InputLabel htmlFor="newFullImageLink"></InputLabel>
