@@ -1,21 +1,18 @@
 'use client';
 
 import * as React from 'react';
-import { useRouter } from 'next/navigation';
 
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
 import MainCard from 'components/MainCard';
+import axios from '../../utils/axios';
 
 // Interface creation taken from Canvas to create mock data with.
 
@@ -64,13 +61,24 @@ const mockBook = {
   language: 'English'
 };
 
-export default function BookSingle() {
-  const router = useRouter();
+export default function BookSingle({ isbn }: { isbn: string }) {
   const [book] = React.useState(mockBook);
   const [userRating, setUserRating] = React.useState<number | null>(null);
-  const handleBackClick = () => {
-    router.push('/books');
-  };
+
+  React.useEffect(() => {
+    axios
+      // Update route to match isbn lookup
+      .get(`closed/books/isbn/${isbn}`)
+      // Create some state variable for storing the resulting book data
+      .then((response) => {
+        console.log(response.data);
+      })
+      // optionally replace the error logging with another state variable that
+      // is used to render an error component / message
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   const handleRatingChange = (event: React.SyntheticEvent, newValue: number | null) => {
     setUserRating(newValue);
@@ -80,10 +88,6 @@ export default function BookSingle() {
   return (
     <Container maxWidth="lg">
       <Box sx={{ mb: 3 }}>
-        <Button startIcon={<ArrowBackIcon />} onClick={handleBackClick} sx={{ mb: 2 }}>
-          Back to Book List
-        </Button>
-
         <MainCard>
           <Grid container spacing={4}>
             {/* Book Cover */}

@@ -77,7 +77,7 @@ export default function BookList() {
 
             {/* Book Information */}
             <Grid item xs={12} md={8}>
-              <Stack spacing={3}>
+              <Stack alignItems="flex-start" spacing={3}>
                 {/* Title and Author */}
                 <Box>
                   <Typography variant="h3" component="h1" gutterBottom>
@@ -101,8 +101,8 @@ export default function BookList() {
                     </Typography>
                   </Stack>
                 </Box>
-                <Button startIcon={<ArrowForwardIcon />} onClick={handleClick} sx={{ mb: 2 }}>
-                  More Information Here!
+                <Button variant="outlined" startIcon={<ArrowForwardIcon />} onClick={handleClick} sx={{ mb: 2 }}>
+                  View Details
                 </Button>
               </Stack>
             </Grid>
