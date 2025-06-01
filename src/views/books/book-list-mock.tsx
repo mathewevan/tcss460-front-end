@@ -12,50 +12,55 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import MainCard from 'components/MainCard';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForwardIos';
-import axios from 'axios';
 
-interface IBook {
-  isbn13: number;
-  authors: string;
-  publication: number;
-  original_title: string;
-  title: string;
-  ratings: IRatings;
-  icons: IUrlIcon;
-}
+// ================================|| List of Books ||================================ //
 
-interface IUrlIcon {
-  large: string;
-  small: string;
-}
+const mockBook1 = {
+  isbn13: 9780743273565,
+  authors: 'F. Scott Fitzgerald',
+  publication: 1925,
+  title: 'The Great Gatsby',
+  image: 'https://images.gr-assets.com/books/1490528560m/4671.jpg'
+};
 
-interface IRatings {
-  average: number;
-  count: number;
-  rating_1: number;
-  rating_2: number;
-  rating_3: number;
-  rating_4: number;
-  rating_5: number;
-}
+const mockBook2 = {
+  isbn13: 9780439023480,
+  authors: 'Suzanne Collins',
+  publication: 2008,
+  title: 'The Hunger Games (The Hunger Games, #1)',
+  image: 'https://images.gr-assets.com/books/1447303603m/2767052.jpg'
+};
+
+const mockBook3 = {
+  isbn13: 9780385352870,
+  authors: 'Hiroyuki Takei',
+  publication: 2015,
+  title: 'Shaman King, Vol. 1: A Shaman in Tokyo',
+  image: 'https://images.gr-assets.com/books/1444234846m/885744.jpg'
+};
+
+const mockBook4 = {
+  isbn13: 2940013283250,
+  authors: 'Megan Abbott',
+  publication: 1992,
+  title: 'The Fever',
+  image: 'https://images.gr-assets.com/books/1381359885m/18656036.jpg'
+};
+
+const mockBook5 = {
+  isbn13: 9780525478810,
+  authors: 'John Green',
+  publication: 2012,
+  title: 'The Fault in Our Stars',
+  image: 'https://images.gr-assets.com/books/1360206420m/11870085.jpg'
+};
 
 export default function BookList() {
-  const [books, setBooks] = React.useState<IBook[]>([]);
   const router = useRouter();
-  React.useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const response = await axios.get('/closed/books');
-        setBooks(response.data.books);
-      } catch (error) {
-        console.error('Error fetching book-list /closed/books:', error);
-      }
-    };
-    fetchBooks();
-  }, []);
+  const books = [mockBook1, mockBook2, mockBook3, mockBook4, mockBook5];
 
   const handleClick = (isbn13: number) => {
-    router.push(`/closed/${isbn13}`);
+    router.push(`/books/${isbn13}`);
   };
 
   return (
@@ -78,25 +83,26 @@ export default function BookList() {
                 <Card sx={{ p: 0, width: 'fit-content', ml: 7.75 }}>
                   <CardMedia
                     component="img"
-                    image={book.icons.large}
+                    image={book.image}
                     alt={book.title}
                     sx={{ height: 250, objectFit: 'contain', border: '1px solid grey', borderRadius: 2 }}
                   />
                 </Card>
               </Grid>
 
-            {/* Book Information */}
-            <Grid item xs={12} md={8}>
-              <Stack alignItems="flex-start" spacing={3}>
-                {/* Title and Author */}
-                <Box>
-                  <Typography variant="h3" component="h1" gutterBottom>
-                    {book.title}
-                  </Typography>
-                  <Typography variant="h5" color="text.secondary" sx={{ mb: 2 }}>
-                    by {book.authors}
-                  </Typography>
-                </Box>
+              {/* Book Information */}
+              <Grid item xs={12} md={8}>
+                <Stack spacing={3}>
+                  {/* Title and Author */}
+                  <Box>
+                    <Typography variant="h3" component="h1" gutterBottom>
+                      {book.title}
+                    </Typography>
+                    <Typography variant="h5" color="gray" sx={{ mb: 2 }}>
+                      by {book.authors}
+                    </Typography>
+                  </Box>
+
                   {/* Book Details */}
                   <Box>
                     <Typography variant="h5" gutterBottom>
