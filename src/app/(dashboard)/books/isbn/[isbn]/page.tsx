@@ -3,8 +3,8 @@ import BookSingle from '../../../../../views/books/book-single';
 
 // ==============================|| PAGE ||============================== //
 
-export default async function BookSinglePage({ params }: { params: Promise<{ isbn: string }> }) {
-  const { isbn } = await params;
+export default async function BookSinglePage({ params }: { params: { isbn: string } }) {
+  const { isbn } = params;
 
   return <BookSingle isbn={isbn} />;
 }

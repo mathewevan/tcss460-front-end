@@ -18,6 +18,10 @@ import MainCard from 'components/MainCard';
 import axios from '../../utils/axios';
 import Divider from '@mui/material/Divider';
 
+interface ISBN13 {
+  isbn: string;
+}
+
 interface IRatings {
   average: number;
   count: number;
@@ -63,16 +67,9 @@ interface IBook {
 //   language: 'English'
 // };
 
-interface ISBN13 {
-  params: {
-    isbn: string;
-  };
-}
-
-export default function BookSingle({ params }: ISBN13) {
+export default function BookSingle({ isbn }: ISBN13) {
   const router = useRouter();
   // const params = useParams();
-  const { isbn } = params;
   // const isbn = params.isbn;
   const [book, setBook] = React.useState<IBook | null>(null);
   const [userRating, setUserRating] = React.useState<number | null>(null);
