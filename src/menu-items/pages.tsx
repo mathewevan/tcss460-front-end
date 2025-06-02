@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 
 // assets
 import MessageOutlined from '@ant-design/icons/MessageOutlined';
-import IdCardOutlined from '@ant-design/icons/IdCardOutlined';
+import IdcardOutlined from '@ant-design/icons/IdcardOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import LockOutlined from '@ant-design/icons/LockOutlined';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
@@ -18,7 +18,7 @@ import { NavItemType } from 'types/menu';
 const icons = {
   MessageOutlined,
   SearchOutlined,
-  IdCardOutlined,
+  IdcardOutlined,
   LockOutlined,
   MenuBookOutlinedIcon,
   LibraryBooksIcon,
@@ -81,7 +81,7 @@ const pages: NavItemType = {
       id: 'account-category',
       title: <FormattedMessage id="account-category" />,
       type: 'collapse',
-      icon: icons.IdCardOutlined,
+      icon: icons.IdcardOutlined,
       children: [
         {
           id: 'change-password',
