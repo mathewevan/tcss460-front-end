@@ -1,21 +1,23 @@
 'use client';
 
 import * as React from 'react';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+// import { useParams } from 'next/navigation';
+// import axios from 'axios';
 
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import Rating from '@mui/material/Rating';
+import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
+
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import MainCard from 'components/MainCard';
-import axios from '../../utils/axios';
 import Divider from '@mui/material/Divider';
 
 interface IRatings {
@@ -43,67 +45,41 @@ interface IBook {
   icons: IUrlIcon;
 }
 
-// // Mock data provided by AI (Claude)
-// // Mock data - in real app, this would come from API based on ISBN
-// const mockBook = {
-//   isbn13: 9780743273565,
-//   authors: 'F. Scott Fitzgerald',
-//   publication: 1925,
-//   title: 'The Great Gatsby',
-//   ratings: {
-//     average: 4.2,
-//     count: 1247
-//   },
-//   image: 'https://images.gr-assets.com/books/1490528560m/4671.jpg',
-//   description:
-//     'Set in the summer of 1922, The Great Gatsby follows Nick Carraway, a young Yale graduate and World War I veteran from the Midwest who moves to Long Island in 1922, intending to work in the bond business.',
-//   genre: 'Literary Fiction',
-//   pages: 180,
-//   publisher: "Charles Scribner's Sons",
-//   language: 'English'
-// };
+const mockBook: IBook = {
+  isbn13: 9780743273560,
+  authors: 'F. Scott Fitzgerald',
+  publication: 1925,
+  original_title: 'The Great Gatsby',
+  title: 'The Great Gatsby',
+  ratings: {
+    average: 3.89,
+    count: 2683664,
+    rating_1: 86236,
+    rating_2: 197621,
+    rating_3: 606158,
+    rating_4: 936012,
+    rating_5: 947718
+  },
+  icons: {
+    large: 'https://images.gr-assets.com/books/1490528560m/4671.jpg',
+    small: 'https://images.gr-assets.com/books/1490528560s/4671.jpg'
+  }
+};
 
 export default function BookSingle() {
   const router = useRouter();
-  const params = useParams();
-  const isbn = params.isbn;
-  const [book, setBook] = React.useState<IBook | null>(null);
+  //const params = useParams();
+  //const isbn = params.isbn;
+  const [book] = React.useState<IBook>(mockBook);
   const [userRating, setUserRating] = React.useState<number | null>(null);
-
   const handleBackClick = () => {
     router.push('/books');
   };
-
-  React.useEffect(() => {
-    axios
-      // Update route to match isbn lookup
-      .get(`closed/books/isbn/${isbn}`)
-      // Create some state variable for storing the resulting book data
-      .then((response) => {
-        console.log(response.data);
-      })
-      // optionally replace the error logging with another state variable that
-      // is used to render an error component / message
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
 
   const handleRatingChange = (event: React.SyntheticEvent, newValue: number | null) => {
     setUserRating(newValue);
     console.log(`User rated book ${newValue} stars`);
   };
-  React.useEffect(() => {
-    const fetchBook = async () => {
-      try {
-        const response = await axios.get(`/closed/books/isbn/${isbn}`);
-        setBook(response.data.book);
-      } catch (error) {
-        console.error(`Error fetching book-single /closed/books/isbn/${isbn}:`, error);
-      }
-    };
-    fetchBook();
-  }, [isbn]);
 
   if (!book) {
     return <div>Loading...</div>;
@@ -154,7 +130,7 @@ export default function BookSingle() {
                 {/* Rating Section */}
                 <Box>
                   <Typography variant="h6" sx={{ fontSize: '1.5rem' }} gutterBottom>
-                    Current Rating
+                    <strong>Current Rating</strong>
                   </Typography>
                   <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2 }}>
                     <Typography variant="h4">{book.ratings.average.toFixed(1)}</Typography>
