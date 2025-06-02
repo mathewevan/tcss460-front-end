@@ -12,7 +12,7 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import MainCard from 'components/MainCard';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForwardIos';
-import axios from 'axios';
+import axios from '../../utils/axios';
 
 interface IBook {
   isbn13: number;
@@ -39,23 +39,27 @@ interface IRatings {
   rating_5: number;
 }
 
-export default function BookList() {
+interface Title {
+  title: string;
+}
+
+export default function BookList({ title }: Title) {
   const [books, setBooks] = React.useState<IBook[]>([]);
   const router = useRouter();
   React.useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('/closed/books');
+        const response = await axios.get(`/closed/books/title/${title}`);
         setBooks(response.data.books);
       } catch (error) {
-        console.error('Error fetching book-list /closed/books:', error);
+        console.error(`Error fetching book-list /closed/books/title/${title}`, error);
       }
     };
     fetchBooks();
   }, []);
 
-  const handleClick = (isbn13: number) => {
-    router.push(`/closed/${isbn13}`);
+  const handleClick = (isbn: number) => {
+    router.push(`/books/isbn/${isbn}`);
   };
 
   return (
@@ -85,18 +89,18 @@ export default function BookList() {
                 </Card>
               </Grid>
 
-            {/* Book Information */}
-            <Grid item xs={12} md={8}>
-              <Stack alignItems="flex-start" spacing={3}>
-                {/* Title and Author */}
-                <Box>
-                  <Typography variant="h3" component="h1" gutterBottom>
-                    {book.title}
-                  </Typography>
-                  <Typography variant="h5" color="text.secondary" sx={{ mb: 2 }}>
-                    by {book.authors}
-                  </Typography>
-                </Box>
+              {/* Book Information */}
+              <Grid item xs={12} md={8}>
+                <Stack alignItems="flex-start" spacing={3}>
+                  {/* Title and Author */}
+                  <Box>
+                    <Typography variant="h3" component="h1" gutterBottom>
+                      {book.title}
+                    </Typography>
+                    <Typography variant="h5" color="text.secondary" sx={{ mb: 2 }}>
+                      by {book.authors}
+                    </Typography>
+                  </Box>
                   {/* Book Details */}
                   <Box>
                     <Typography variant="h5" gutterBottom>

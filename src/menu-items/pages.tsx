@@ -69,6 +69,13 @@ const pages: NavItemType = {
           icon: icons.MenuBookOutlinedIcon
         },
         {
+          id: 'books-search-title',
+          title: <FormattedMessage id="books-search-title" />,
+          type: 'item',
+          url: '/books/search/title',
+          icon: icons.MenuBookOutlinedIcon
+        },
+        {
           id: 'books-view-all',
           title: <FormattedMessage id="books-view-all" />,
           type: 'item',
