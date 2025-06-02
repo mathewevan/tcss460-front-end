@@ -29,7 +29,6 @@ export default function SearchIsbn() {
         isbn13: Yup.string().length(13, 'ISBN13 must be exactly 13 digits').required('ISBN13 is required')
       })}
       onSubmit={(values, { resetForm }) => {
-        console.log('Hi!');
         router.push(`/books/isbn/${values.isbn13}`);
       }}
     >

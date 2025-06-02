@@ -78,25 +78,11 @@ export default function BookSingle({ isbn }: ISBN13) {
     router.push('/books');
   };
 
-  React.useEffect(() => {
-    axios
-      // Update route to match isbn lookup
-      .get(`closed/books/isbn/${isbn}`)
-      // Create some state variable for storing the resulting book data
-      .then((response) => {
-        console.log(response.data);
-      })
-      // optionally replace the error logging with another state variable that
-      // is used to render an error component / message
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
   const handleRatingChange = (event: React.SyntheticEvent, newValue: number | null) => {
     setUserRating(newValue);
     console.log(`User rated book ${newValue} stars`);
   };
+
   React.useEffect(() => {
     const fetchBook = async () => {
       try {
