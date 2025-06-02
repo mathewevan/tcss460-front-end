@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
@@ -63,10 +63,17 @@ interface IBook {
 //   language: 'English'
 // };
 
-export default function BookSingle() {
+interface ISBN13 {
+  params: {
+    isbn: string;
+  };
+}
+
+export default function BookSingle({ params }: ISBN13) {
   const router = useRouter();
-  const params = useParams();
-  const isbn = params.isbn;
+  // const params = useParams();
+  const { isbn } = params;
+  // const isbn = params.isbn;
   const [book, setBook] = React.useState<IBook | null>(null);
   const [userRating, setUserRating] = React.useState<number | null>(null);
 
