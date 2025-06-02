@@ -16,5 +16,7 @@
   "view-messages": "View Messages",
   "books-category": "Books",
   "books-search-isbn": "Search ISBN13",
-  "books-view-all": "View All"
+  "books-view-all": "View All",
+  "account-category": "Account",
+  "change-password": "Change Password"
 }

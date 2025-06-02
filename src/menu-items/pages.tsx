@@ -3,7 +3,9 @@ import { FormattedMessage } from 'react-intl';
 
 // assets
 import MessageOutlined from '@ant-design/icons/MessageOutlined';
+import IdCardOutlined from '@ant-design/icons/IdCardOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import LockOutlined from '@ant-design/icons/LockOutlined';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import EmailIcon from '@mui/icons-material/Email';
@@ -13,7 +15,16 @@ import SendIcon from '@mui/icons-material/Send';
 import { NavItemType } from 'types/menu';
 
 // icons
-const icons = { MessageOutlined, SearchOutlined, MenuBookOutlinedIcon, LibraryBooksIcon, EmailIcon, SendIcon };
+const icons = {
+  MessageOutlined,
+  SearchOutlined,
+  IdCardOutlined,
+  LockOutlined,
+  MenuBookOutlinedIcon,
+  LibraryBooksIcon,
+  EmailIcon,
+  SendIcon
+};
 
 // ==============================|| MENU ITEMS - PAGES ||============================== //
 
@@ -63,6 +74,21 @@ const pages: NavItemType = {
           type: 'item',
           url: '/books',
           icon: icons.LibraryBooksIcon
+        }
+      ]
+    },
+    {
+      id: 'account-category',
+      title: <FormattedMessage id="account-category" />,
+      type: 'collapse',
+      icon: icons.IdCardOutlined,
+      children: [
+        {
+          id: 'change-password',
+          title: <FormattedMessage id="change-password" />,
+          type: 'item',
+          url: '/account',
+          icon: icons.LockOutlined
         }
       ]
     }
