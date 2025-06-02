@@ -18,7 +18,6 @@ import { StringColorProps } from 'types/password';
 import { strengthColor, strengthIndicator } from '../../../utils/password-strength';
 import EmailIcon from '@mui/icons-material/Email';
 
-
 export default function ChangePassword() {
   //const router = useRouter();
   const [level, setLevel] = useState<StringColorProps>();
@@ -141,10 +140,10 @@ export default function ChangePassword() {
               <OutlinedInput
                 fullWidth={false}
                 error={Boolean(touched.newpass && errors.newpass)}
-                id="confirmpass"
+                id="newpass"
                 type="password"
                 value={values.newpass}
-                name="confirmpass"
+                name="newpass"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 endAdornment={
@@ -162,10 +161,9 @@ export default function ChangePassword() {
                 }
                 placeholder="Enter new password"
               />
-              {level &&
-                level.label && ( // Assuming 'label' holds the message based on recent StringColorProps
-                  <div style={{ color: level.color, marginTop: '4px', fontSize: '0.75rem' }}>Password strength: {level.label}</div>
-                )}
+              {level && level.label && (
+                <div style={{ color: level.color, marginTop: '4px', fontSize: '0.75rem' }}>Password strength: {level.label}</div>
+              )}
               {touched.newpass && errors.newpass && (
                 <div
                   style={{
