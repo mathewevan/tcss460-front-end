@@ -9,19 +9,22 @@ import InputLabel from '@mui/material/InputLabel';
 import Stack from '@mui/material/Stack';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
-import { IconButton } from '@mui/material';
+import { Alert, IconButton } from '@mui/material';
 import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 import * as Yup from 'yup';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import * as React from 'react';
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { StringColorProps } from 'types/password';
 import { strengthColor, strengthIndicator } from '../../../utils/password-strength';
 import EmailIcon from '@mui/icons-material/Email';
+import axios from '../../../utils/axios';
+import { Check } from '@mui/icons-material';
 
 export default function ChangePassword() {
-  //const router = useRouter();
   const [level, setLevel] = useState<StringColorProps>();
 
+  const [showSuccess, setShowSuccess] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showOldPassword, setShowOldPassword] = useState(false);
   const handleClickShowNewPassword = () => {
@@ -48,6 +51,14 @@ export default function ChangePassword() {
   useEffect(() => {
     changePassword('');
   }, []);
+
+  if (showSuccess) {
+    return (
+      <Alert icon={<Check fontSize="inherit" />} severity="success">
+        Password changed successfully.
+      </Alert>
+    );
+  }
   return (
     <Formik
       initialValues={{
@@ -55,7 +66,22 @@ export default function ChangePassword() {
         oldpass: '',
         newpass: ''
       }}
-      onSubmit={async (values, { setErrors, setStatus, setSubmitting, resetForm }) => {}}
+      onSubmit={async (values, { setErrors, setStatus, setSubmitting, resetForm }) => {
+        const payload = {
+          email: values.email,
+          oldPassword: values.oldpass,
+          newPassword: values.newpass
+        };
+
+        try {
+          const response = await axios.patch(`/auth/changePassword`, payload as any);
+          if (response.status === 200) {
+            setShowSuccess(true);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }}
       validationSchema={Yup.object().shape({
         email: Yup.string().required('Email required'),
         newpass: Yup.string()
