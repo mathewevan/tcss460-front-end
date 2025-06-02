@@ -1,5 +1,4 @@
 export interface StringColorProps {
-  message: StringColorProps | undefined;
   id?: string;
   label?: string;
   color?: string;
