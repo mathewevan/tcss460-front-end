@@ -9,7 +9,7 @@
   to create and connect the increment stars endpoint. Designed a chohesive Nav Bar with apporpriate categories icons and functionality. 
 - Kaely: Created an update stars page/endpoint with massive mentorship from Matt
 - Kylie: Created the Create a Book page in sections, view, and app along with the Delete a Book and Landing Page Design UI Design in Figma.
-- Ken: Did /app page.tsx hookup for views, refactored book-list to use map for future scaling and changed cover scaling/fit. Debugging for app import and book-list.
+- Ken: Worked on api connection and UI/UX updates for viewing book-single/list.
 
 ## Version Beta II Sprint Meetings
 - Doing our communication through a Discord Server for our Group, messages and meetings in a voice channel.
