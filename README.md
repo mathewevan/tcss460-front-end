@@ -5,7 +5,7 @@
 - [Vercel hosted web app](https://group5-tcss460-front-ak55n00sw-matt-millers-projects-5fc80133.vercel.app/)
 
 ## Version Beta II Sprint Contribution
-- Matt: Created and connected enpoints for retreiving books by ISBN, Rating Range, Title and All, recreated and connected the change password page to the API, Pair programmed with kaely
+- Matt: Created and connected endpoints for retreiving books by ISBN, Rating Range, Title and All, recreated and connected the change password page to the API, Pair programmed with Kaely
   to create and connect the increment stars endpoint. Designed a chohesive Nav Bar with apporpriate categories icons and functionality. 
 - Kaely: Created an update stars page/endpoint with massive mentorship from Matt
 - Kylie: Created the Create a Book page in sections, view, and app along with the Delete a Book and Landing Page Design UI Design in Figma.
