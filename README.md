@@ -7,7 +7,7 @@
 ## Version Beta II Sprint Contribution
 - Matt: Created and connected enpoints for retreiving books by ISBN, Rating Range, Title and All, recreated and connected the change password page to the API, Pair programmed with kaely
   to create and connect the increment stars endpoint. Designed a chohesive Nav Bar with apporpriate categories icons and functionality. 
-- Kaely: Created skeleton hierarchy for single book and list of books. Completed code for a single book in the view directory.
+- Kaely: Created an update stars page/endpoint with massive mentorship from Matt
 - Kylie: Created the Create a Book page in sections, view, and app along with the Delete a Book and Landing Page Design UI Design in Figma.
 - Ken: Did /app page.tsx hookup for views, refactored book-list to use map for future scaling and changed cover scaling/fit. Debugging for app import and book-list.
 
