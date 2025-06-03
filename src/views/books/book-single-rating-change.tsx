@@ -44,8 +44,8 @@ interface IBook {
 }
 
 interface IRatingUpdate {
-  star_level: number;
-  book_id: number;
+  starLevel: number;
+  bookId: number;
 }
 
 // // Mock data provided by AI (Claude)
@@ -68,7 +68,7 @@ interface IRatingUpdate {
 //   language: 'English'
 // };
 
-export default function BookSingle({ book_id, star_level }: IRatingUpdate) {
+export default function BookSingle({ bookId, starLevel }: IRatingUpdate) {
   const router = useRouter();
   // const params = useParams();
   // const isbn = params.isbn;
@@ -87,10 +87,10 @@ export default function BookSingle({ book_id, star_level }: IRatingUpdate) {
   React.useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await axios.get(`/closed/books/bookid/${book_id}/incRating?=${star_level}`);
+        const response = await axios.patch(`/closed/books/bookid/${bookId}/incRating?rating=${starLevel}`);
         setBook(response.data.book);
       } catch (error) {
-        console.error(`Error fetching book-single /closed/books/isbn/${book_id}:`, error);
+        console.error(`Error fetching book-single /closed/books/bookid/${bookId}/incRating?rating=${starLevel}:`, error);
       }
     };
     fetchBook();
