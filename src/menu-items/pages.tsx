@@ -3,10 +3,12 @@ import { FormattedMessage } from 'react-intl';
 
 // assets
 import MessageOutlined from '@ant-design/icons/MessageOutlined';
+import EditOutlined from '@ant-design/icons/EditOutlined';
 import IdcardOutlined from '@ant-design/icons/IdcardOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import LockOutlined from '@ant-design/icons/LockOutlined';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import EmailIcon from '@mui/icons-material/Email';
 import SendIcon from '@mui/icons-material/Send';
@@ -17,10 +19,12 @@ import { NavItemType } from 'types/menu';
 // icons
 const icons = {
   MessageOutlined,
+  EditOutlined,
   SearchOutlined,
   IdcardOutlined,
   LockOutlined,
   MenuBookOutlinedIcon,
+  StarBorderOutlinedIcon,
   LibraryBooksIcon,
   EmailIcon,
   SendIcon
@@ -81,6 +85,21 @@ const pages: NavItemType = {
           type: 'item',
           url: '/books',
           icon: icons.LibraryBooksIcon
+        }
+      ]
+    },
+    {
+      id: 'update-category',
+      title: <FormattedMessage id="update-category" />,
+      type: 'collapse',
+      icon: icons.EditOutlined,
+      children: [
+        {
+          id: 'change-star-rating',
+          title: <FormattedMessage id="change-star-rating" />,
+          type: 'item',
+          url: '/update/change-rating',
+          icon: icons.StarBorderOutlinedIcon
         }
       ]
     },
