@@ -4,7 +4,7 @@
 - [Heroku Web API Group 2](https://group2-tcss460-web-api-322094da8ec1.herokuapp.com/)
 - [Vercel hosted web app](https://group5-tcss460-front-ak55n00sw-matt-millers-projects-5fc80133.vercel.app/)
 
-## Version Beta I Sprint Contribution
+## Version Beta II Sprint Contribution
 - Matt: Created and connected enpoints for retreiving books by ISBN, Rating Range, Title and All, recreated and connected the change password page to the API, Pair programmed with kaely
   to create and connect the increment stars endpoint. Designed a chohesive Nav Bar with apporpriate categories icons and functionality. 
 - Kaely: Created skeleton hierarchy for single book and list of books. Completed code for a single book in the view directory.
@@ -18,7 +18,7 @@
 - Sunday: 8pm - 9:30pm, peer coding
 - Monday: 8:30pm - 12am, peer coding and finalizing submission
 
-## Version Beta I Sprint Comments
+## Version Beta II Sprint Comments
 - https://group5-tcss460-front-ak55n00sw-matt-millers-projects-5fc80133.vercel.app/books for viewing book list.
 - https://group5-tcss460-front-ak55n00sw-matt-millers-projects-5fc80133.vercel.app/books/123 for viewing book single.
 - https://group5-tcss460-front-ak55n00sw-matt-millers-projects-5fc80133.vercel.app/account for changing account password.
