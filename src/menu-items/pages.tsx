@@ -7,6 +7,7 @@ import EditOutlined from '@ant-design/icons/EditOutlined';
 import IdcardOutlined from '@ant-design/icons/IdcardOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import LockOutlined from '@ant-design/icons/LockOutlined';
+import StarHalfOutlinedIcon from '@mui/icons-material/StarHalfOutlined';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
@@ -26,6 +27,7 @@ const icons = {
   MenuBookOutlinedIcon,
   StarBorderOutlinedIcon,
   LibraryBooksIcon,
+  StarHalfOutlinedIcon,
   EmailIcon,
   SendIcon
 };
@@ -78,6 +80,13 @@ const pages: NavItemType = {
           type: 'item',
           url: '/books/search/title',
           icon: icons.MenuBookOutlinedIcon
+        },
+        {
+          id: 'books-search-rating',
+          title: <FormattedMessage id="books-search-rating" />,
+          type: 'item',
+          url: '/books/search/rating',
+          icon: icons.StarHalfOutlinedIcon
         },
         {
           id: 'books-view-all',
