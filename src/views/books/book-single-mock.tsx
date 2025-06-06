@@ -14,8 +14,16 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogActions from '@mui/material/DialogActions';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import MainCard from 'components/MainCard';
 import Divider from '@mui/material/Divider';
@@ -72,8 +80,38 @@ export default function BookSingle() {
   //const isbn = params.isbn;
   const [book] = React.useState<IBook>(mockBook);
   const [userRating, setUserRating] = React.useState<number | null>(null);
+  const [deleteDialog, setDeleteDialog] = React.useState(false);
+  const [snackBar, setSnackBar] = React.useState(false);
+
   const handleBackClick = () => {
     router.push('/books');
+  };
+
+  const handleDeleteClick = () => {
+    setDeleteDialog(true);
+  };
+
+  const handleDeleteCancel = () => {
+    setDeleteDialog(false);
+  };
+
+  const handleSuccessClose = () => {
+    setSnackBar(false);
+  };
+
+  const handleSuccessAndBack = () => {
+    setSnackBar(false);
+    handleBackClick();
+  };
+
+  const handleDeleteConfirm = async () => {
+    try {
+      console.log('fake delete success for test');
+      setDeleteDialog(false);
+      setSnackBar(true);
+    } catch (error) {
+      console.error('Error deleting book: ', error);
+    }
   };
 
   const handleRatingChange = (event: React.SyntheticEvent, newValue: number | null) => {
@@ -94,6 +132,16 @@ export default function BookSingle() {
           sx={{ mb: 2, boxShadow: 3, border: '1px solid white', borderRadius: 2 }}
         >
           Back to Book List
+        </Button>
+
+        <Button
+          startIcon={<DeleteIcon />}
+          onClick={handleDeleteClick}
+          color="error"
+          variant="outlined"
+          sx={{ mb: 2, ml: 2, boxShadow: 3, borderRadius: 2 }}
+        >
+          Delete Book
         </Button>
 
         <MainCard sx={{ border: '2px solid white', borderRadius: 2, boxShadow: 2 }}>
@@ -177,6 +225,44 @@ export default function BookSingle() {
           </Grid>
         </MainCard>
       </Box>
+      {/* Delete Confirmation Dialog */}
+      <Dialog
+        open={deleteDialog}
+        onClose={handleDeleteCancel}
+        aria-labelledby="delete-dialog-title"
+        aria-describedby="delete-dialog-description"
+      >
+        <DialogTitle id="delete-dialog-title">Delete Book</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="delete-dialog-description">
+            Are you sure you want to delete &quot;{book.title}&quot;? This action cannot be undone.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDeleteCancel} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleDeleteConfirm} color="error" variant="outlined">
+            Confirm
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Success Snackbar */}
+      <Snackbar open={snackBar} onClose={handleSuccessClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        <Alert
+          onClose={handleSuccessClose}
+          severity="success"
+          sx={{ width: '100%' }}
+          action={
+            <Button color="inherit" size="small" onClick={handleSuccessAndBack}>
+              Back to List
+            </Button>
+          }
+        >
+          Book deleted successfully!
+        </Alert>
+      </Snackbar>
     </Container>
   );
 }
