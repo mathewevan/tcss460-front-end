@@ -26,11 +26,14 @@ export default function ChangeRating() {
     <Formik
       initialValues={{ book_id: '', star_level: '' }}
       validationSchema={Yup.object({
-        star_level: Yup.string().max(5, 'Star Level must be 5 or less. ').required('Star Level is required').min(1, 'Star Level must be 1 or more. '),
-        book_id:Yup.string().required('Book ID is required')
+        star_level: Yup.string()
+          .max(5, 'Star Level must be 5 or less. ')
+          .required('Star Level is required')
+          .min(1, 'Star Level must be 1 or more. '),
+        book_id: Yup.string().required('Book ID is required')
       })}
       onSubmit={(values, { resetForm }) => {
-          console.log("Hello!");
+        console.log('Hello!');
         router.push(`/update/${values.book_id}/${values.star_level}`);
       }}
     >
@@ -58,26 +61,26 @@ export default function ChangeRating() {
                   )}
                 </Stack>
               </Grid>
-                <Grid item xs={12}>
-                    <Stack spacing={1}>
-                        <InputLabel htmlFor="star_level">Star Level</InputLabel>
-                        <OutlinedInput
-                            fullWidth={false}
-                            error={Boolean(touched.star_level && errors.star_level)}
-                            id="star_level"
-                            value={values.star_level}
-                            name="star_level"
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                            placeholder="Enter Star Level"
-                        />
-                        {touched.star_level && errors.star_level && (
-                            <FormHelperText error id="standard-weight-helper-text-star_level">
-                                {errors.star_level}
-                            </FormHelperText>
-                        )}
-                    </Stack>
-                </Grid>
+              <Grid item xs={12}>
+                <Stack spacing={1}>
+                  <InputLabel htmlFor="star_level">Star Level</InputLabel>
+                  <OutlinedInput
+                    fullWidth={false}
+                    error={Boolean(touched.star_level && errors.star_level)}
+                    id="star_level"
+                    value={values.star_level}
+                    name="star_level"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder="Enter Star Level"
+                  />
+                  {touched.star_level && errors.star_level && (
+                    <FormHelperText error id="standard-weight-helper-text-star_level">
+                      {errors.star_level}
+                    </FormHelperText>
+                  )}
+                </Stack>
+              </Grid>
             </Grid>
             <Grid item xs={12}>
               <AnimateButton>
