@@ -38,6 +38,7 @@ interface IUrlIcon {
 }
 
 interface IBook {
+  book_id: number;
   isbn13: number;
   authors: string;
   publication: number;
@@ -78,15 +79,34 @@ export default function BookSingle({ isbn }: ISBN13) {
     router.push('/books');
   };
 
-  const handleRatingChange = (event: React.SyntheticEvent, newValue: number | null) => {
+  const handleRatingChange = async (event: React.SyntheticEvent, newValue: number | null) => {
+    // Immediately update the UI for a responsive feel
     setUserRating(newValue);
-    console.log(`User rated book ${newValue} stars`);
+    const currentBookId = book?.book_id;
+    console.log(currentBookId);
+    // Prevent API call if the rating is cleared (newValue is null)
+    if (newValue === null) {
+      return;
+    }
+
+    try {
+      const response = await axios.patch(`/closed/books/bookid/${currentBookId}/incRating?rating=${newValue}`);
+
+      setBook((prevBook) => ({
+        ...prevBook,
+        ...response.data.book
+      }));
+    } catch (error) {
+      console.error(`Error updating rating for book ${currentBookId}:`, error);
+    }
   };
 
   React.useEffect(() => {
     const fetchBook = async () => {
       try {
         const response = await axios.get(`/closed/books/isbn/${isbn}`);
+
+        console.log(response.data);
         setBook(response.data.book);
       } catch (error) {
         console.error(`Error fetching book-single /closed/books/isbn/${isbn}:`, error);
