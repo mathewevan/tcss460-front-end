@@ -15,8 +15,8 @@ const icons = { ChromeOutlined };
 // ==============================|| MENU ITEMS - SAMPLE PAGE ||============================== //
 
 const samplePage: NavItemType = {
-  id: 'sample-page',
-  title: <FormattedMessage id="sample-page" />,
+  id: 'TCSS 460 Home',
+  title: <FormattedMessage id="TCSS 460 Home" />,
   type: 'group',
   url: '/sample-page',
   icon: icons.ChromeOutlined
