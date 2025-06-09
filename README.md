@@ -2,7 +2,7 @@
  
 ## Links
 - [Heroku Web API Group 2](https://group2-tcss460-web-api-322094da8ec1.herokuapp.com/)
-- [Vercel hosted web app](https://group5-tcss460-front-end.vercel.app/))
+- [Vercel hosted web app](https://group5-tcss460-front-end.vercel.app/)
 
 ## Production Version Sprint Contribution
 - Matt: 
