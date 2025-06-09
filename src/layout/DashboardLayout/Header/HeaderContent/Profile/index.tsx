@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState } from 'react'; // SyntheticEvent is no longer needed
 
 // next
 import { useRouter } from 'next/navigation';
@@ -16,6 +16,10 @@ import Popper from '@mui/material/Popper';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
 
 // project import
 import Avatar from 'components/@extended/Avatar';
@@ -28,6 +32,7 @@ import useUser from 'hooks/useUser';
 
 // assets
 import LogoutOutlined from '@ant-design/icons/LogoutOutlined';
+import LockOutlined from '@ant-design/icons/LockOutlined';
 
 // ==============================|| HEADER CONTENT - PROFILE ||============================== //
 
@@ -138,6 +143,23 @@ export default function Profile() {
                       </Grid>
                     </Grid>
                   </CardContent>
+
+                  {/* ===== START: SIMPLIFIED MENU ===== */}
+                  <List component="nav" sx={{ p: 0, '& .MuiListItemIcon-root': { minWidth: 32 } }}>
+                    <ListItemButton
+                      onClick={() => {
+                        router.push('/account');
+                        setOpen(false); // Close the popover after clicking
+                      }}
+                    >
+                      <ListItemIcon>
+                        <LockOutlined />
+                      </ListItemIcon>
+                      <ListItemText primary="Change Password" />
+                    </ListItemButton>
+                  </List>
+                  {/* ===== END: SIMPLIFIED MENU ===== */}
+
                 </MainCard>
               </ClickAwayListener>
             </Paper>

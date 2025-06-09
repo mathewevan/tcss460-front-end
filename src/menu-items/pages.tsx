@@ -111,21 +111,6 @@ const pages: NavItemType = {
           icon: icons.StarBorderOutlinedIcon
         }
       ]
-    },
-    {
-      id: 'account-category',
-      title: <FormattedMessage id="account-category" />,
-      type: 'collapse',
-      icon: icons.IdcardOutlined,
-      children: [
-        {
-          id: 'change-password',
-          title: <FormattedMessage id="change-password" />,
-          type: 'item',
-          url: '/account',
-          icon: icons.LockOutlined
-        }
-      ]
     }
   ]
 };
