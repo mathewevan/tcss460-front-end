@@ -42,7 +42,7 @@ export default function CreateBook() {
     try {
       const response = await axios.post(`/closed/books`, payload as any);
 
-      if (response.status === 200) {
+      if (response.status === 201) {
         setShowSuccess(true);
       }
     } catch (error) {

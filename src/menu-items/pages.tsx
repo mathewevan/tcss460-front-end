@@ -85,7 +85,7 @@ const pages: NavItemType = {
         },
         {
           id: 'books-search-rating',
-          title: <FormattedMessage id="books-search-rating" />,
+          title: <FormattedMessage id="Search By Rating" />,
           type: 'item',
           url: '/books/search/rating',
           icon: icons.StarHalfOutlinedIcon
@@ -111,21 +111,6 @@ const pages: NavItemType = {
           type: 'item',
           url: '/create',
           icon: icons.ImportOutlined
-        }
-      ]
-    },
-    {
-      id: 'update-category',
-      title: <FormattedMessage id="update-category" />,
-      type: 'collapse',
-      icon: icons.EditOutlined,
-      children: [
-        {
-          id: 'change-star-rating',
-          title: <FormattedMessage id="change-star-rating" />,
-          type: 'item',
-          url: '/update/change-rating',
-          icon: icons.StarBorderOutlinedIcon
         }
       ]
     }

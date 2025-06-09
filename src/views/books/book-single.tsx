@@ -112,7 +112,7 @@ export default function BookSingle({ isbn }: ISBN13) {
       if (response.status === 200) {
         setDeleteDialog(false);
         setSnackBar(true);
-        router.push('/books/search/isbn');
+        // router.push('/books/search/isbn');
       }
     } catch (error) {
       console.error('Error deleting book: ', error);
