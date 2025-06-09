@@ -1,5 +1,3 @@
-'use client';
-
 // material-ui
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';

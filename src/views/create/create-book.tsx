@@ -1,3 +1,5 @@
+'use client';
+
 // material-ui
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
