@@ -6,7 +6,7 @@ import './globals.css';
 import ProviderWrapper from './ProviderWrapper';
 
 export const metadata: Metadata = {
-  title: 'TCSS 460 UI Template',
+  title: 'MK3 Books',
   description: 'TCSS 460 UI Template'
 };
 
