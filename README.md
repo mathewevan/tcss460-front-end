@@ -7,7 +7,7 @@
 ## Production Version Sprint Contribution
 - Matt: 
 - Kaely: Added Create a Book
-- Kylie:
+- Kylie: Created and implmented the UI of the Homepage/Landing Page after signing into the website.
 - Ken: Added delete button to single book view.
 
 ## Production Version Sprint Meetings
@@ -15,4 +15,4 @@
 - Thursday: 8pm - 8:30pm, distributing tasks for this week.
 - Sunday: 6:00pm - 8:00pm, merging to main, finalizing changes.
 
-## Version Beta II Sprint Comments
+## Version Published Front End Sprint Comments
