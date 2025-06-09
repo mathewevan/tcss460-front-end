@@ -14,16 +14,22 @@ import { useRouter } from 'next/navigation';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import FormHelperText from '@mui/material/FormHelperText';
-import React from 'react';
+import React, { useState } from 'react';
 import Stack from '@mui/material/Stack';
+import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
 
 // ============================|| CREATE BOOK FORM ||============================ //
 
 export default function CreateBook() {
   const router = useRouter();
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [showSnackbar, setShowSnackbar] = useState(false);
 
   const handleSubmit = async (values: any, { resetForm, setSubmitting }: any) => {
     try {
+      setErrorMessage('');
       const response = await fetch('https://lwazi71.github.io/Web_API_Phase2_TCSS460/books', {
         method: 'POST',
         headers: {
@@ -43,13 +49,18 @@ export default function CreateBook() {
       if (response.ok) {
         const result = await response.json();
         console.log('Book created successfully:', result);
+        setSuccessMessage(`Book "${values.title}" has been created successfully!`);
+        setShowSnackbar(true);
         resetForm();
         // Optionally redirect to the books list or show success message
         router.push('/books');
       } else {
+        const errorData = await response.json();
+        setErrorMessage(errorData.message || 'Failed to create book. Please try again.');
         console.error('Failed to create book:', response.statusText);
       }
     } catch (error) {
+      setErrorMessage('An error occurred while creating the book. Please try again.');
       console.error('Error creating book:', error);
     } finally {
       setSubmitting(false);
@@ -57,6 +68,13 @@ export default function CreateBook() {
   };
 
   return (
+    <>
+      {errorMessage && (
+        <Alert severity="error" sx={{ mb: 2 }}>
+          {errorMessage}
+        </Alert>
+      )}
+
     <Formik
       initialValues={{
         isbn: '',
@@ -258,5 +276,21 @@ export default function CreateBook() {
         </form>
       )}
     </Formik>
+
+    <Snackbar
+      open={showSnackbar}
+      autoHideDuration={6000}
+      onClose={() => setShowSnackbar(false)}
+      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+    >
+      <Alert
+        onClose={() => setShowSnackbar(false)}
+        severity="success"
+        sx={{ width: '100%' }}
+      >
+        {successMessage}
+      </Alert>
+    </Snackbar>
+  </>
   );
 }
