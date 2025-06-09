@@ -5,7 +5,8 @@
 - [Vercel hosted web app](https://group5-tcss460-front-end.vercel.app/)
 
 ## Production Version Sprint Contribution
-- Matt: Moved change password to drop down under avatar, implemented rating update by selecting a star level, removed old implementation, assisted with bug fixes on final implementations.
+- Matt: Moved change password to drop down under avatar, implemented rating update by selecting a star level, removed old implementations, added several
+  functionality and cosmetic touches, assisted with bug fixes on final implementations.
 - Kaely: Added Create a Book
 - Kylie: Created and implmented the UI of the Homepage/Landing Page after signing into the website.
 - Ken: Added delete button to single book view.
