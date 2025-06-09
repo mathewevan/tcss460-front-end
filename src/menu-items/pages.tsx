@@ -7,6 +7,7 @@ import EditOutlined from '@ant-design/icons/EditOutlined';
 import IdcardOutlined from '@ant-design/icons/IdcardOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import LockOutlined from '@ant-design/icons/LockOutlined';
+import ImportOutlined from '@ant-design/icons/ImportOutlined';
 import StarHalfOutlinedIcon from '@mui/icons-material/StarHalfOutlined';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
@@ -24,6 +25,7 @@ const icons = {
   SearchOutlined,
   IdcardOutlined,
   LockOutlined,
+  ImportOutlined,
   MenuBookOutlinedIcon,
   StarBorderOutlinedIcon,
   LibraryBooksIcon,
@@ -94,6 +96,21 @@ const pages: NavItemType = {
           type: 'item',
           url: '/books',
           icon: icons.LibraryBooksIcon
+        }
+      ]
+    },
+    {
+      id: 'create-category',
+      title: <FormattedMessage id="create-category" />,
+      type: 'collapse',
+      icon: icons.ImportOutlined,
+      children: [
+        {
+          id: 'create-book',
+          title: <FormattedMessage id="create-book" />,
+          type: 'item',
+          url: '/create',
+          icon: icons.ImportOutlined
         }
       ]
     },
