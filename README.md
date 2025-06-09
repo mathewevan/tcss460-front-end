@@ -1,26 +1,18 @@
-# Published Front End Version Beta II
+# Published Front End Production
  
 ## Links
 - [Heroku Web API Group 2](https://group2-tcss460-web-api-322094da8ec1.herokuapp.com/)
-- [Vercel hosted web app](https://group5-tcss460-front-ak55n00sw-matt-millers-projects-5fc80133.vercel.app/)
+- [Vercel hosted web app](https://group5-tcss460-front-end.vercel.app/))
 
-## Version Beta II Sprint Contribution
-- Matt: Created and connected endpoints for retreiving books by ISBN, Rating Range, Title and All, recreated and connected the change password page to the API, Pair programmed with Kaely
-  to create and connect the increment stars endpoint. Designed a chohesive Nav Bar with apporpriate categories icons and functionality. 
-- Kaely: Created an update stars page/endpoint with massive mentorship from Matt
-- Kylie: Created the Create a Book page in sections, view, and app along with the Delete a Book and Landing Page Design UI Design in Figma.
-- Ken: Worked on api connection and UI/UX updates for viewing book-single/list.
+## Production Version Sprint Contribution
+- Matt: 
+- Kaely: 
+- Kylie:
+- Ken: Added delete button to single book view.
 
-## Version Beta II Sprint Meetings
+## Production Version Sprint Meetings
 - Doing our communication through a Discord Server for our Group, messages and meetings in a voice channel.
-- Thursday: 8pm - 8:30pm, figured out strengths/weakness going into Beta II.
-- Friday: 8pm - 9pm, peer coding and assignment breakdown meeting.
-- Sunday: 8pm - 9:30pm, peer coding
-- Monday: 8:30pm - 12am, peer coding and finalizing submission
+- Thursday: 8pm - 8:30pm, distributing tasks for this week.
+- Sunday: 6:00pm - 8:00pm, merging to main, finalizing changes.
 
 ## Version Beta II Sprint Comments
-- https://group5-tcss460-front-ak55n00sw-matt-millers-projects-5fc80133.vercel.app/books for viewing book list.
-- https://group5-tcss460-front-ak55n00sw-matt-millers-projects-5fc80133.vercel.app/books/123 for viewing book single.
-- https://group5-tcss460-front-ak55n00sw-matt-millers-projects-5fc80133.vercel.app/account for changing account password.
-- https://www.figma.com/proto/91GNGOXM1FRoVDvnN4Ss5t/TCSS-460-Books-UI---Delete-a-Book?node-id=2-2&t=j7XcelnzhebRgYIK-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1 Delete a Book UI Design for Beta II
-- https://www.figma.com/proto/UTc8ArRRGfoJtJ29Uhw9bo/TCSS-460-Landing-Page?node-id=2-2&p=f&t=8ZR0wtjPVKCpnmpe-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1 Landing Page UI Design for Beta II
