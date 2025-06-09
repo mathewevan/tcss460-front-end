@@ -17,7 +17,6 @@ import FormHelperText from '@mui/material/FormHelperText';
 import React, { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
-import Snackbar from '@mui/material/Snackbar';
 import axios from '../../../utils/axios';
 import { Check } from '@mui/icons-material';
 
@@ -27,7 +26,6 @@ export default function CreateBook() {
   //const router = useRouter();
   //const [successMessage, setSuccessMessage] = useState('');
   //const [errorMessage, setErrorMessage] = useState('');
-  const [showSnackbar, setShowSnackbar] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
   const handleSubmit = async (values: any, { setSubmitting }: any) => {
@@ -43,6 +41,7 @@ export default function CreateBook() {
 
     try {
       const response = await axios.post(`/closed/books`, payload as any);
+
       if (response.status === 200) {
         setShowSuccess(true);
       }
@@ -253,17 +252,6 @@ export default function CreateBook() {
           </form>
         )}
       </Formik>
-
-      <Snackbar
-        open={showSnackbar}
-        autoHideDuration={6000}
-        onClose={() => setShowSnackbar(false)}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
-        <Alert onClose={() => setShowSnackbar(false)} severity="success" sx={{ width: '100%' }}>
-          {}
-        </Alert>
-      </Snackbar>
     </>
   );
 }
