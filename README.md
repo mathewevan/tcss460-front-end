@@ -6,7 +6,7 @@
 
 ## Production Version Sprint Contribution
 - Matt: 
-- Kaely: 
+- Kaely: Added Create a Book
 - Kylie:
 - Ken: Added delete button to single book view.
 
