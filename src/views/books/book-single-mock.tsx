@@ -216,7 +216,7 @@ export default function BookSingle() {
                       <strong>Publication Year:</strong> {book.publication}
                     </Typography>
                     <Typography>
-                      <strong>Original Title::</strong> {book.original_title}
+                      <strong>Original Title:</strong> {book.original_title}
                     </Typography>
                   </Stack>
                 </Box>

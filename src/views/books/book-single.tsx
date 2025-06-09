@@ -108,7 +108,7 @@ export default function BookSingle({ isbn }: ISBN13) {
   const handleDeleteConfirm = async () => {
     try {
       const response = await axios.delete(`/closed/books/${isbn}`);
-      if ((response.status = 200)) {
+      if ((response.status === 200)) {
         setDeleteDialog(false);
         setSnackBar(true);
       }
@@ -231,7 +231,7 @@ export default function BookSingle({ isbn }: ISBN13) {
                       <strong>Publication Year:</strong> {book.publication}
                     </Typography>
                     <Typography>
-                      <strong>Original Title::</strong> {book.original_title}
+                      <strong>Original Title:</strong> {book.original_title}
                     </Typography>
                   </Stack>
                 </Box>
